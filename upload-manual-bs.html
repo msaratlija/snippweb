@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<html lang="en">
+
+<head>
+    <title>Image upload</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/upload-manual-bs-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./js/upload-manual-js.js"></script> 	
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+
+</head>
+
+        <h1>Image upload</h1>
+
+<body>
+
+    
+
+    <div class="container-text">
+        <p class="container-text__element">
+            Upload image manually: <br>
+        </p>
+        <p class="container-text__element2">
+            (supported files: JPG, JPEG, PNG, GIF)
+        </p>
+    </div>
+
+
+    <div class="container-fluid">
+
+        <form id="image_upload_form" method="post" enctype="multipart/form-data" action='image-upload.php' autocomplete="off">
+        <div class="row">
+            <div class="col-md-2">
+                <label class="btn btn-primary btn-md">
+                    Choose Image&hellip; 
+                    <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;">
+                </label>
+            </div>
+            <div class="col-md-3">
+                <span class="file-span"><input class="file-span__text" type="text" id="upload-file-info" value="Image.."/></span>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-md" id="submit-button" type="submit" style="display: none;">Upload Image</button>
+            </div>
+        </div>
+        </form>
+
+        <div class="row" id="successful-upload" style="display: none;">
+
+            <div class="col-md-3">
+                <span class="file-span"><input class="file-span__text" type="text" id="url-file-info"/></span>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-md" id="copy-button" data-clipboard-target="#url-file-info">Copy Link</button>
+            </div>
+
+            <div class="col-md-1">
+                <button class="btn btn-primary btn-md" id="new-upload">New</button>
+            </div>
+
+        </div>
+
+        <div class="row" id="progress-bar" style="display: none;">
+            <div class="col-md-5">
+                <div class="progress">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="percent"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 z-depth-5" id="preview" style="color: white;"></div>
+        </div>
+
+    </div>
+
+
+    
+</body>
+
+</html>

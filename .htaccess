@@ -1,0 +1,14 @@
+#Options All -Indexes 
+#RewriteEngine On
+#RewriteCond %{SCRIPT_FILENME} !-d
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteRule ^/(.+)$ /image-view.php?image=$1 [QSA]
+
+Options All -Indexes 
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)(?:/([^/]+))?/?$ image-view.php?image=$1 [L,QSA,NC]
+#RewriteRule ^snippweb/(.+)$ snippweb/image-view.php?image=$1 [NC,L]
