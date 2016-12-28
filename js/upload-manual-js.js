@@ -23,12 +23,15 @@ $(document).ready(function(){
 
     $("#image_upload_form").on('submit',(function(e){
         e.preventDefault();
+        var userData = new FormData(this);
+        var time = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        userData.append("time", time);
         $("#preview").show();
         $("#progress-bar").show();
             $.ajax({
             url: "image-upload.php",
             type: "POST",
-            data: new FormData(this),
+            data: userData,
             dataType: 'json',
             contentType: false,
             cache: false,
@@ -65,7 +68,7 @@ $(document).ready(function(){
                 console.log(data);
             },
             error: function(data, error, xhr){
-                $("#preview").html("Sorry, your file was not uploaded.");
+                $("#preview").html("Sorry, your file was not uploaded. Your file is not an image. Only images are supported.");
                 bar.css('background-color', 'red');
                 percent.html("Error");
                 console.log(data);
