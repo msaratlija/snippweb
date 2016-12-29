@@ -5,8 +5,8 @@ include dirname(__FILE__)."/image-sql.php";
 
 //#replace path to images folder
 $images_dir         = "uploads/";
-$target_file_dir    = $images_dir . basename($_FILES["fileToUpload"]["name"]); // dir/image_name.ext
-$target_file_tmp    = $_FILES["fileToUpload"]["tmp_name"];                     // tmp_image_name.ext
+$target_file_dir    = $images_dir . basename($_FILES["fileToUpload"]["name"]); 
+$target_file_tmp    = $_FILES["fileToUpload"]["tmp_name"];                     
 $image_unique_name  = null;
 $tmp_image          = null;
 $image_type         = null;
@@ -94,7 +94,6 @@ if ($uploadOk == 1 && $_FILES["fileToUpload"]["size"] < 3145728) {
     }
 
     imagedestroy($tmp_image);
-    //echo json_encode($echo_return);
 }
 
 echo json_encode($echo_return);
